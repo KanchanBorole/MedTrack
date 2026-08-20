@@ -2,6 +2,7 @@
 
 MedTrack is a web app that connects individuals, NGOs, and hospitals to reduce medicine waste. Users can list surplus medicines for donation, post requests for medicines they need, track expiry dates, and find organizations on an interactive map.
 
+## Demo Video Link - https://drive.google.com/file/d/1EEoPlTfpcRhhIPBW_qfe-ZVjbN1fNccM/view?usp=drive_link
 ## What the app does
 
 - **Landing page** — Explains the platform, shows live stats, and features recent medicine listings.
