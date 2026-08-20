@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-gray-800 bg-gray-50 transition-colors duration-300;
+  }
+  .dark body {
+    @apply text-gray-200 bg-gray-950;
+  }
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-primary-600 text-white font-medium shadow-sm hover:bg-primary-700 hover:shadow-md hover:-translate-y-0.5 active:scale-95 active:translate-y-0 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-sm;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-white text-primary-700 border border-primary-200 font-medium shadow-sm hover:bg-primary-50 hover:border-primary-300 hover:shadow-md hover:-translate-y-0.5 active:scale-95 active:translate-y-0 transition-all duration-200;
+    @apply dark:bg-gray-800 dark:text-primary-400 dark:border-gray-700 dark:hover:bg-gray-700/50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-gray-600 font-medium hover:bg-gray-100 hover:text-gray-900 active:scale-95 transition-all duration-200;
+    @apply dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-100;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-error-600 text-white font-medium shadow-sm hover:bg-error-700 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-200;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-100 transition-all duration-300;
+    @apply dark:bg-gray-900 dark:border-gray-800 dark:shadow-none;
+  }
+  .card-hover {
+    @apply card hover:shadow-lg hover:-translate-y-1 hover:border-primary-100;
+    @apply dark:hover:shadow-lg dark:hover:shadow-black/20 dark:hover:border-primary-900/50;
+  }
+  .card-glass {
+    @apply bg-white/70 backdrop-blur-lg rounded-2xl border border-white/40 shadow-sm;
+    @apply dark:bg-gray-900/70 dark:border-gray-700/40;
+  }
+  .input {
+    @apply w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent focus:shadow-md transition-all duration-200;
+    @apply dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:placeholder:text-gray-500 dark:focus:ring-primary-500 dark:focus:shadow-lg dark:focus:shadow-primary-950/30;
+  }
+  .label {
+    @apply block text-sm font-medium text-gray-700 mb-1.5;
+    @apply dark:text-gray-300;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent;
+    @apply dark:from-primary-400 dark:to-secondary-400;
+  }
+  .gradient-text-accent {
+    @apply bg-gradient-to-r from-accent-500 to-primary-500 bg-clip-text text-transparent;
+    @apply dark:from-accent-400 dark:to-primary-400;
+  }
+  .shimmer-bg {
+    background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+    background-size: 200% 100%;
+    @apply animate-shimmer;
+  }
+  .dark .shimmer-bg {
+    background: linear-gradient(90deg, #1f2937 25%, #374151 50%, #1f2937 75%);
+    background-size: 200% 100%;
+  }
+  .animate-stagger-1 { animation: slideUp 0.5s ease-out 0.05s both; }
+  .animate-stagger-2 { animation: slideUp 0.5s ease-out 0.1s both; }
+  .animate-stagger-3 { animation: slideUp 0.5s ease-out 0.15s both; }
+  .animate-stagger-4 { animation: slideUp 0.5s ease-out 0.2s both; }
+  .animate-stagger-5 { animation: slideUp 0.5s ease-out 0.25s both; }
+  .animate-stagger-6 { animation: slideUp 0.5s ease-out 0.3s both; }
+  .animate-stagger-7 { animation: slideUp 0.5s ease-out 0.35s both; }
+  .animate-stagger-8 { animation: slideUp 0.5s ease-out 0.4s both; }
+}
+
+/* Dark mode overrides for Leaflet map tiles */
+.dark .leaflet-tile {
+  filter: brightness(0.65) invert(1) contrast(1.05) hue-rotate(190deg) saturate(0.4);
+}
+.dark .leaflet-container {
+  background: #1a1a2e;
+}
+.dark .leaflet-popup-content-wrapper,
+.dark .leaflet-popup-tip {
+  background: #1f2937;
+  color: #e5e7eb;
+  border: 1px solid #374151;
+}
+.dark .leaflet-popup-content a {
+  color: #34d399;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { @apply bg-gray-300 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-gray-400; }
+.dark ::-webkit-scrollbar-thumb { @apply bg-gray-700; }
+.dark ::-webkit-scrollbar-thumb:hover { @apply bg-gray-600; }
+
+/* Dark mode color date input fix */
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+  cursor: pointer;
+}
+.dark select option {
+  background: #1f2937;
+  color: #e5e7eb;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
